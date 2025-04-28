@@ -1,4 +1,4 @@
-const { dirname: t } = await import("./__vite-browser-external-BDMct_Gn.js"), { fileURLToPath: n } = await import("./__vite-browser-external-BDMct_Gn.js"), r = t(n(import.meta.url));
+const r = t(n(import.meta.url));
 function o(t2) {
   const n2 = function(e2) {
     const t3 = { template: "v1", sample: "dynamic string" }, n3 = new URLSearchParams(e2.search);
