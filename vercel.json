@@ -3,7 +3,7 @@
 	"public": false,
     "builds": [
         {
-            "src": "dist/index.js",
+            "src": "dist/index.mjs",
             "use": "@vercel/node",
             "config": { "includeFiles": ["dist/**"] }
         }
@@ -11,7 +11,7 @@
 	"regions": ["lhr1"],
     "headers": [
     {
-      "source": "/index.js",
+      "source": "/index.mjs",
       "headers": [
         {
           "key": "Cache-Control",
@@ -24,6 +24,6 @@
 	      ]
     } 	],
 	"rewrites":[
-		{ "source": "/(.*)", "destination": "/dist/index.js" }
+		{ "source": "/(.*)", "destination": "/dist/index.mjs" }
 		]
 }
