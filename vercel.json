@@ -24,6 +24,6 @@
 	      ]
     } 	],
 	"rewrites":[
-		{ "source": "/", "destination": "/dist/index.js" }
+		{ "source": "/(.*)", "destination": "/dist/index.js" }
 		]
 }
