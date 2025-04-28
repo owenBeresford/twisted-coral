@@ -1,4 +1,6 @@
-const e = {}, t = e.dirname(e.fileURLToPath(import.meta.url));
+import path from "node:path"; 
+import url from "node:url"; 
+const t = path.dirname(url.fileURLToPath(import.meta.url));
 function n(n2) {
   const r2 = function(e2) {
     const t2 = { template: "v1", sample: "dynamic string" }, n3 = new URLSearchParams(e2.search);
