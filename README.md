@@ -76,8 +76,11 @@ These could be issues, but this is faster.
 - I chose Vercel over a more traditional Serverless cloud vendor as your spec nearly doesn't ask for any computation
 - I chose Fluid over Edge, as Vercel said too ~ and they know their platform
 - I include several HTML templates, as the single Element line isn't good practice 
-- I currently have little security on the build process, I should add this.  The build process at Hoptroff for example was a mature release process, as would be expected for a business inside ISO-27001.
-
+- I currently have little security on the build process, **I should add this**.  The build process at Hoptroff for example was a mature release process, as would be expected for a business inside ISO-27001.
+- I am not compiling in Vercel, as this adds no benefit to me, but will stack up CPU time.   Note loudly: Dep issues are best not fixed in production.   Vervel does support this.
+- The regions set in the Vercel GUI do nothing, I am setting this the config
+- I will add smoothed URLs in later editions
+- I have set some headers, I will need to add more in the long scale
 
 ### Known limits:
 

@@ -1,0 +1,5 @@
+package-lock.json
+*.tfvars
+
+node_modules
+
