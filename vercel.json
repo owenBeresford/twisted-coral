@@ -22,6 +22,8 @@
           "value": "text/html; encoding= utf8"
         }
 	      ]
-    } 	]
-	
+    } 	],
+	"rewrites":[
+		{ "source": "/*", "destination": "/dist/index.js:anything" }
+		]
 }
