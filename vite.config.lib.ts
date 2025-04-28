@@ -6,6 +6,7 @@ import ts from "vite-plugin-ts";
 import { fileURLToPath } from "url";
 // import { terser } from "rollup-plugin-terser";
 import terser from "@rollup/plugin-terser";
+import builtinModules from 'builtin-modules';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -16,14 +17,24 @@ export default defineConfig({
   server: {
     hmr: false,
   },
+    ssr: {
+      format: 'esm',
+      target: 'node',
+      
+      // By default Vite bundles everything except the one we pass via `external` array.
+      external: builtinModules
+    },
   build: {
     minify: "terser",
     target: "es2022",
     lib: {
       entry: [path.resolve(__dirname, "src/index.ts")],
+		fileName: 'index',
     },
     rollupOptions: {
-      plugins: [terser({})],
+      plugins: [
+		terser({})
+				],
       external: [],
       output: [
         {
