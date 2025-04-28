@@ -34,11 +34,12 @@ function sanitise_getopts(loc:URL): RuntimeSettings {
 	const PARAM:URLSearchParams = new URLSearchParams(loc.search);
 	let ret: RuntimeSettings ={} as RuntimeSettings;
 
-	for(let i in Object.keys(DEFAULTS) ) {
-		if( PARAM.has(i)) {
-			ret[i]=decodeURI( PARAM.get(i) );
+	const KEYS=Object.keys(DEFAULTS);
+	for(let i in KEYS) {
+		if( PARAM.has( KEYS[i] )) {
+			ret[i]=decodeURI( PARAM.get( KEYS[i] ) );
 		} else {
-			ret[i]=DEFAULTS[i];
+			ret[i]=DEFAULTS[ KEYS[i] ];
 		}
 	}
 	return ret;
