@@ -10,10 +10,9 @@
 // I find this block of IO import an ugly wart
 import path from "node:path";
 import { readFileSync } from 'node:fs/promises';
+import url from 'node:url';
 
-const { dirname } = await import('node:path');
-const { fileURLToPath } = await import("node:url");
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
 
 type RuntimeSettings=Record<string,string> ;
