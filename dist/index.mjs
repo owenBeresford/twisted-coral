@@ -10,6 +10,7 @@ function n(n2) {
   }(n2);
   return function(n3) {
     const r3 = { v1: "v1.html", v2: "v2.html" };
+
     if (!(n3 in r3)) throw new Error("Unknown template " + n3);
     const o = e.join(t, r3[n3]);
     return fs.readFileSync(o, { encoding: "utf8", flag: "r" });
@@ -17,6 +18,7 @@ function n(n2) {
 }
 function r(e2) {
   const t2 = n(new URL(e2.url));
+console.log("XXX", e2.url, n(new URL(e2.url)) );
   return new Response(t2, { status: 200, headers: { "cache-control": "max-age=0", "content-type": "text/html; encoding= utf8", expires: (/* @__PURE__ */ new Date()).toString() } });
 }
 export {
