@@ -1,0 +1,27 @@
+{
+    "version": 2,
+	"public": false,
+    "builds": [
+        {
+            "src": "dist/index.js",
+            "use": "@vercel/node",
+            "config": { "includeFiles": ["dist/**"] }
+        }
+    ],
+	"regions": ["lhr1"],
+    "headers": [
+    {
+      "source": "/index.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        },
+        {
+          "key": "content-type",
+          "value": "text/html; encoding= utf8"
+        }
+	      ]
+    } 	]
+	
+}
