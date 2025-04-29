@@ -6,10 +6,11 @@
   "engines": {
     "node": ">=18.0.0"
   },
-  "description": "The most minimal API with few deps as I can write.  The project name is just a random word-pair.  There is no execute script here as this code is integated into another project.",
-  "main": "dist/apply.js",
+  "description": "The most minimal API with few deps as I can write.  The framework is Vercel.\nThe project name is just a random word-pair.  There is no execute script here as this code is integated ito Vercel.",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "vercel test thing"
+    "test": "node node_modules/.bin/vitest run; echo 'Add something Vercel test'",
+	"build": "node node_modules/.bin/vite build --config ./vite.config.lib.ts; echo 'Unfortunately, this needs to be repacked by hand'; cp src/*.html dist/;"
   },
   "author": "see git repo",
   "license": "ISC",
