@@ -39,7 +39,12 @@ function sanitise_getopts(loc:URL): RuntimeSettings {
 	const KEYS=Object.keys(DEFAULTS);
 	for(let i in KEYS) {
 		if( PARAM.has( KEYS[i] )) {
-			ret[ KEYS[i] ]=decodeURI( PARAM.get( KEYS[i] ) ).replaceAll(["<", ">"], ["&lt;", "&gt;"]);
+			let buf=PARAM.get( KEYS[i] );
+			buf= decodeURI(buf);
+			buf=buf.replaceAll("<", "&lt;");
+			buf=buf.replaceAll(">", "&gt;");
+
+			ret[ KEYS[i] ]=buf;
 		} else {
 			ret[ KEYS[i] ]=DEFAULTS[ KEYS[i] ];
 		}
