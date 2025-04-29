@@ -25,10 +25,6 @@ variable "location" {
   nullable    = false
 }
 
-data "vercel_project_directory" "path" {
-  path = "./static"
-}
-
 variable "vercel_api_token" {
   type        = string
   description = "relevant auth token."

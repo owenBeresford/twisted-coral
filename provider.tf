@@ -13,11 +13,11 @@ provider "vercel" {
   team      = var.vercel_team
 }
 
-data "vercel_project" "terraform_demo" {
-  name        = "vc1_eu-west1"
-  files       = data.vercel_project_directory.local_src.files
-  path_prefix = "./"
-  production  = false
+data "vercel_project" "app" {
+  name        = var.vercel_project_name 
+#  files       = "${data.vercel_project_directory.path}*"
+#  path_prefix = "./"
+#  production  = false
   team_id     = var.vercel_team
 }
 
