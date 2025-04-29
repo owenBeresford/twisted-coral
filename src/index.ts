@@ -10,12 +10,11 @@ import fs from "node:fs";
 // I think this block of IO import an ugly wart
 // but __dirname needs to be defined or various libs crash
 import path from "node:path";
-import url from 'node:url';
+import url from "node:url";
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
-
-type RuntimeSettings=Record<string,string> ;
-type TemplateList=Record<string,string> ;
+type RuntimeSettings = Record<string, string>;
+type TemplateList = Record<string, string>;
 
 /**
  * sanitise_getopts
@@ -25,28 +24,28 @@ type TemplateList=Record<string,string> ;
  * @public
  * @return {RuntimeSettings} 
  */
-function sanitise_getopts(loc:URL): RuntimeSettings {
-	const DEFAULTS: RuntimeSettings={
-		template:"v1",
-		sample:"dynamic string",
-		} as RuntimeSettings;
-	const PARAM:URLSearchParams = new URLSearchParams(loc.search);
-	let ret: RuntimeSettings ={} as RuntimeSettings;
+function sanitise_getopts(loc: URL): RuntimeSettings {
+  const DEFAULTS: RuntimeSettings = {
+    template: "v1",
+    sample: "dynamic string",
+  } as RuntimeSettings;
+  const PARAM: URLSearchParams = new URLSearchParams(loc.search);
+  let ret: RuntimeSettings = {} as RuntimeSettings;
 
-	const KEYS=Object.keys(DEFAULTS);
-	for(let i in KEYS) {
-		if( PARAM.has( KEYS[i] )) {
-			let buf=PARAM.get( KEYS[i] );
-			buf= decodeURI(buf);
-			buf=buf.replaceAll("<", "&lt;");
-			buf=buf.replaceAll(">", "&gt;");
+  const KEYS = Object.keys(DEFAULTS);
+  for (let i in KEYS) {
+    if (PARAM.has(KEYS[i])) {
+      let buf = PARAM.get(KEYS[i]);
+      buf = decodeURI(buf);
+      buf = buf.replaceAll("<", "&lt;");
+      buf = buf.replaceAll(">", "&gt;");
 
-			ret[ KEYS[i] ]=buf;
-		} else {
-			ret[ KEYS[i] ]=DEFAULTS[ KEYS[i] ];
-		}
-	}
-	return ret;
+      ret[KEYS[i]] = buf;
+    } else {
+      ret[KEYS[i]] = DEFAULTS[KEYS[i]];
+    }
+  }
+  return ret;
 }
 
 /**
@@ -59,19 +58,19 @@ function sanitise_getopts(loc:URL): RuntimeSettings {
  * @public
  * @return {string}
  */
-function content_template(nom:string ):string {
-	const VALID:TemplateList={
-			"v1": "v1.html", 
-			"v2": "v2.html" 
-						};
-	if(! (nom in VALID) ) { 
-		throw new Error("Unknown template "+nom);
-	}
-	
-	const fileName=path.join( __dirname, VALID[nom] );
-	let html= fs.readFileSync( fileName, { encoding:'utf8', flag:'r' });
+function content_template(nom: string): string {
+  const VALID: TemplateList = {
+    v1: "v1.html",
+    v2: "v2.html",
+  };
+  if (!(nom in VALID)) {
+    throw new Error("Unknown template " + nom);
+  }
 
-	return html;
+  const fileName = path.join(__dirname, VALID[nom]);
+  let html = fs.readFileSync(fileName, { encoding: "utf8", flag: "r" });
+
+  return html;
 }
 
 /**
@@ -83,11 +82,14 @@ function content_template(nom:string ):string {
  * @public
  * @return {string}
  */
-function map_templates(loc:URL):string {
-	const dat=sanitise_getopts(loc);
-	const html= content_template(dat['template']).replace(/\bSAMPLE\b/g, dat['sample']);
-// I am expecting more behaviour to be added here
-	return html;
+function map_templates(loc: URL): string {
+  const dat = sanitise_getopts(loc);
+  const html = content_template(dat["template"]).replace(
+    /\bSAMPLE\b/g,
+    dat["sample"],
+  );
+  // I am expecting more behaviour to be added here
+  return html;
 }
 
 /**
@@ -106,22 +108,21 @@ function map_templates(loc:URL):string {
  * @public
  * @return {Response}
  */
-export function GET(req: Request):Response {
-	const loc:URL=new URL(req.url);
-	const html=map_templates(loc);
+export function GET(req: Request): Response {
+  const loc: URL = new URL(req.url);
+  const html = map_templates(loc);
 
-	return new Response( html, {
+  return new Response(html, {
     status: 200,
     headers: {
-		'cache-control': 'max-age=0',
-		'content-type':  'text/html; encoding= utf8',
-		'expires':       (new Date()).toString(),    
-			},
+      "cache-control": "max-age=0",
+      "content-type": "text/html; encoding= utf8",
+      expires: new Date().toString(),
+    },
   });
 }
 
 /**
  * Access point for all local symbols, so unit tests can be applied
  */
-export const TEST_ONLY={ map_templates, content_template, sanitise_getopts };
-
+export const TEST_ONLY = { map_templates, content_template, sanitise_getopts };

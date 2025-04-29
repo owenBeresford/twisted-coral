@@ -1,15 +1,15 @@
 {
-    "version": 2,
-	"public": false,
-    "builds": [
-        {
-            "src": "dist/index.mjs",
-            "use": "@vercel/node",
-            "config": { "includeFiles": ["dist/**"] }
-        }
-    ],
-	"regions": ["lhr1"],
-    "headers": [
+  "version": 2,
+  "public": false,
+  "builds": [
+    {
+      "src": "dist/index.mjs",
+      "use": "@vercel/node",
+      "config": { "includeFiles": ["dist/**"] }
+    }
+  ],
+  "regions": ["lhr1"],
+  "headers": [
     {
       "source": "/index.mjs",
       "headers": [
@@ -21,9 +21,8 @@
           "key": "content-type",
           "value": "text/html; encoding= utf8"
         }
-	      ]
-    } 	],
-	"rewrites":[
-		{ "source": "/(.*)", "destination": "/dist/index.mjs" }
-		]
+      ]
+    }
+  ],
+  "rewrites": [{ "source": "/(.*)", "destination": "/dist/index.mjs" }]
 }

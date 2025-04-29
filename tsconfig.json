@@ -13,13 +13,13 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "strictPropertyInitialization": false,
-	"strictFunctionTypes":true,
+    "strictFunctionTypes": true,
     "strictNullChecks": false,
     "types": [],
-    "lib": [ "es2022" ]
+    "lib": ["es2022"]
   },
 
   "files": ["./src/index.ts"],
   "exclude": ["./build", "./dist", "./node_modules"],
-  "include": ["*.ts" ]
+  "include": ["*.ts"]
 }
