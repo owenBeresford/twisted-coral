@@ -1,19 +1,16 @@
 /**
- Why no framework?  1 arg was requested, 
- **Vercel is a framework **
- As far as I know, keeping the RAM to a minima has good ROI.
- This is 30 lines of code.
+ Why no framework?  
+ ****Vercel is a framework ****   This is 30 lines of operational code.
 
  My normal approach of supply wireframe and ideate isn't relevant to a tech-test.
 */
 
+// FS is used in this file
+import fs from "node:fs";
 // I think this block of IO import an ugly wart
 // but __dirname needs to be defined or various libs crash
 import path from "node:path";
 import url from 'node:url';
-// FS is used in this file
-import fs from "node:fs";
-
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
 
@@ -95,6 +92,10 @@ function map_templates(loc:URL):string {
 
 /**
  * GET
+
+ Why no framework?  
+ ****Vercel is a framework ****    This is 30 lines of operational code.
+
  * The visible handler, this should be swapped to a framework
  * This several lines has no module plugin capacity, but aside from that has strong overlap with Express source
  * This function signature is copied from the Fluid compute Vercel docs, 
@@ -119,4 +120,8 @@ export function GET(req: Request):Response {
   });
 }
 
+/**
+ * Access point for all local symbols, so unit tests can be applied
+ */
 export const TEST_ONLY={ map_templates, content_template, sanitise_getopts };
+
