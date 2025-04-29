@@ -17,12 +17,13 @@ snap install task --classic
 # install goreleaser ~ code management tool
 snap install --classic goreleaser
 
+# preferably the following are not as root
 # copy my repo ~ where you got this file
 mkdir ~/terraform-demo
 git clone https://github.com/owenBeresford/twisted-coral terraform-demo
 cd ~/terraform-demo
 
 # set-up vercel provider
-terraform install
+terraform init
 
 

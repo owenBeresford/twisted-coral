@@ -91,7 +91,7 @@ I will tear down this URL fairly quickly.   I can add support for a easier-to-us
 
 ### Choices
 
-- I chose Vercel over a more traditional Serverless cloud vendor as your spec nearly doesn't ask for any computation
+- I chose Vercel over a more traditional Serverless cloud vendor as your spec nearly doesn't ask for any computation.   This better maps the features that you ask for IMO. 
 - I chose Fluid over Edge, as Vercel said too ~ and they know their platform
 - I include several HTML templates, as the single Element line isn't good practice 
 - I currently have little security on the build process, **I should add this**.  The build process at Hoptroff for example was a mature release process, as would be expected for a business inside ISO-27001.
@@ -99,8 +99,8 @@ I will tear down this URL fairly quickly.   I can add support for a easier-to-us
 - The regions set in the Vercel GUI do nothing, I am setting this the config to AWS London
 - I have set some HTTP headers, to show that I can.   I will need to add more in the long scale, and if there are any assets.   
 - Due to extremely small number of features will work on mobile, tablet and desktop with no hassle.  
-- Why didn't I use an LLM to generate the code?   It would then take much longer to test, as I haven't used Terraform or Vercel previously.  LLM work best on things that the operator already understands.   
-- Why no SPA framework (React etc)?  This objective is very simple, and Vercel is a framework for ISR, rether than SPA.
+- Why didn't I use an LLM to generate the code?   It would then take much longer to test, as I haven't used Terraform or Vercel previously.  LLM work best on things that the operator already understands, so can make good prompts.   A vague request for "cloud" will deliver AWS most of the time, as it is the most common in articles on the interwebs.  See why Vercel above.
+- Why no SPA framework (React etc)?  This objective is very simple, and Vercel is a framework for ISR ~ 'Incremental Static Regeneration', rather than SPA.  
 
 ### Known limits:
 
