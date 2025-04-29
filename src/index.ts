@@ -7,10 +7,11 @@
  My normal approach of supply wireframe and ideate isn't relevant to a tech-test.
 */
 
-// I find this block of IO import an ugly wart
+// I think this block of IO import an ugly wart
+// but __dirname needs to be defined or various libs crash
 import path from "node:path";
-import { readFileSync } from 'node:fs/promises';
 import url from 'node:url';
+// FS is used in this file
 import fs from "node:fs";
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
