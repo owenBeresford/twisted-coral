@@ -33,42 +33,60 @@ NOTE: If you would prefer to use a private repo - that is fine. Upon the receipt
 
 ### Deliverables for an exposed HTTP service
 
-These could be issues, but this is faster.
+These could be Github issues, but this is faster.
  
 - can be done via IaC?
-- ✓ 	Grab IP & report it to the human
+- ✓ 	Grab IP & report it to the human.  
   - ✓  - real code would assign a domain name ASAP
+  - ✅ Cloud routing is more dynamic, skip to domain name item
 - ✓ 	The HTTP server process
 - ✓		HTTP2 processing
 - ✓ 	HTTPS/ SSL with recent encryption
-- ? 	Create cert 
-  - - if Linux, can run SSL CLI tools? Can be made by Vercel, or terraform
+-   ✅ Allocated domain, HTTP2, fairy good SSL  
+- ? 	Create cert.  NOW unneeded. 
 - ? 	Ensure HTTP security headers
+- ✓    Could add via Vercel if bought expensive account, or manually
 - ? 	Ensure HTTP no-cache type headers to make tests easier
+- ✓ ✅ Added via Vercel, not Terraform 
 - ✓ 	Firewall on the IP
-- ? 	Devop-node service-availability script and graphing
+- ✓  	Devop-node service-availability script and graphing
 - ✓ 	Log build event
 - ✓		Log start/ shutdown events 
 - ✓ 	Log HTTP service used 
+- The last four items are easy in Vercel, will add if get time
 - ? 	Service has behavioural tests
+-   ✅ Done as a unit-test.   
 - ? 	Support an URL that renders a template with a GET arg
-  - - indirectly easy :-)
   -	- service "un-urlencodes" the GET arg
   - - service is UTF-8 
-- ✓     extra cloud scaling, eg Cloudflare
+-   ✅ this is supported in Vercel.
+- ✓     extra cloud scaling, e.g. Cloudflare
 - ? 	Service has choice of HTML templates - supplied example isn't a HTML page
+-   ✅  Added. 
 - ? 	HTTP fittings (robots.txt favico, manifests, RSS, "htaccess type features", etc, etc) 
-  -	- Not needed in REST API , but essential for web
-- - 	NB: no scalability requirements are mentioned.  Start small and extend as needed
+  -	- Not needed in REST API, but essential for web.
+- - 	NB: no scalability requirements are mentioned.  Start small / cheap and extend as needed
 - - 	In real work, large scale is quick with Cloud, but get a spend agreement first.
 
 
 ### Deploy process
 
-- Create Vercel account ~ I wanted this is be automated, then realised steps that can/ might include billing can't be automated
+- Create Vercel account ~ I wanted this is to be automated, then realised steps that can/ might include billing can't be automated
 - Clone this repo
 - OPTIONAL Setup the local tools described in PRE-INSTALL.bash.  I could create a NPM version of that for win32 people, but do not often develop from win32
 - Exec ` terraform apply ` 
+
+
+### Artefact
+
+look at the following URLs:
+- https://arqiva-submission.vercel.app
+- 'https://arqiva-submission.vercel.app?sample=A brave new world of interactivity'
+- https://arqiva-submission.vercel.app?sample=A+brave+new+world+of+interactivity   ~ these format URLs are better for text editing like this, but harder to read.   All three formats are supported
+- https://arqiva-submission.vercel.app?sample=A%20brave%20new%20world%20of%20interactivity  
+- https://arqiva-submission.vercel.app?sample=some+customised+text&template=v2 ~ better use of HTML+CSS
+
+I will tear down this URL fairly quickly.   I can add support for a easier-to-use form to enter the dynamic-text but haven't to date.
 
 
 ### Choices
@@ -77,15 +95,18 @@ These could be issues, but this is faster.
 - I chose Fluid over Edge, as Vercel said too ~ and they know their platform
 - I include several HTML templates, as the single Element line isn't good practice 
 - I currently have little security on the build process, **I should add this**.  The build process at Hoptroff for example was a mature release process, as would be expected for a business inside ISO-27001.
-- I am not compiling in Vercel, as this adds no benefit to me, but will stack up CPU time.   Note loudly: Dep issues are best not fixed in production.   Vervel does support this.
-- The regions set in the Vercel GUI do nothing, I am setting this the config
-- I will add smoothed URLs in later editions
-- I have set some headers, I will need to add more in the long scale
+- I am not compiling in Vercel, as this adds no benefit to me, but will stack up CPU time.   Note loudly: Dep issues are best resolved away from production.   Vervel does support this.
+- The regions set in the Vercel GUI do nothing, I am setting this the config to AWS London
+- I have set some HTTP headers, to show that I can.   I will need to add more in the long scale, and if there are any assets.   
+- Due to extremely small number of features will work on mobile, tablet and desktop with no hassle.  
+- Why didn't I use an LLM to generate the code?   It would then take much longer to test, as I haven't used Terraform or Vercel previously.  LLM work best on things that the operator already understands.   
+- Why no SPA framework (React etc)?  This objective is very simple, and Vercel is a framework for ISR, rether than SPA.
 
 ### Known limits:
 
-- I have only created 1 IP/ region with this script.   This matches what you asked for, and costs the least.   In previous employment, we deployed to data-centres around the planet for better performance in each country/ region.   
-- The first minimal version doesn't include HTTPS/ SSL.  This is a show-stopper for realistic use.   If I created a basic self-signed cert with no domain, this will still trigger many security warnings ~ which is correct procedure.   For the expected use-case, I would guess this is OK, but say "this should be HTTPS"
+- I have only created 1 IP/ region with this script.   This matches what you asked for, and costs the least.   In previous employment, we deployed to data-centres around the planet for better performance in each country/ region.   This is an easy step to scale-to with rentable cloud.
 - I choose to use a blog platform that supported devops rather than a serverless service for them, as this spec is very simple, and doesn't need a DB.   If no complexity is needed, the simplest solution should be better. 
-- ...
+- I *could* it look much more graphically designed,  easily.
+- I will add smoothed URLs in later editions
+- Users need to type on the URL bar (rather than a designed form).   Your browser will tidy-up various input into a valid URL.
 
