@@ -3,29 +3,31 @@ import url from "node:url";
 import fs from "node:fs";
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
-function n(t2) {
-  const e2 = { template: "v1", sample: "dynamic string" }, n2 = new URLSearchParams(t2.search);
-  let o2 = {};
-  const r2 = Object.keys(e2);
-  for (let t3 in r2) n2.has(r2[t3]) ? o2[r2[t3]] = decodeURI(n2.get(r2[t3])).replaceAll(["<", ">"], ["&lt;", "&gt;"]) : o2[r2[t3]] = e2[r2[t3]];
-  return o2;
+function n(e2) {
+  const t2 = { template: "v1", sample: "dynamic string" }, n2 = new URLSearchParams(e2.search);
+  let r2 = {};
+  const o2 = Object.keys(t2);
+  for (let e3 in o2) if (n2.has(o2[e3])) {
+    let t3 = n2.get(o2[e3]);
+    t3 = decodeURI(t3), t3 = t3.replaceAll("<", "&lt;"), t3 = t3.replaceAll(">", "&gt;"), r2[o2[e3]] = t3;
+  } else r2[o2[e3]] = t2[o2[e3]];
+  return r2;
 }
-function o(n2) {
-  const o2 = { v1: "v1.html", v2: "v2.html" };
-  if (!(n2 in o2)) throw new Error("Unknown template " + n2);
-  const r2 = path.join(__dirname, o2[n2]);
-  return fs.readFileSync(r2, { encoding: "utf8", flag: "r" });
+function r(n2) {
+  const r2 = { v1: "v1.html", v2: "v2.html" };
+  if (!(n2 in r2)) throw new Error("Unknown template " + n2);
+  const o2 = path.join(__dirname, r2[n2]);
+  return fs.readFileSync(o2, { encoding: "utf8", flag: "r" });
 }
-function r(t2) {
-  const e2 = n(t2);
-  return o(e2.template).replace(/\bSAMPLE\b/g, e2.sample);
+function o(e2) {
+  const t2 = n(e2);
+  return r(t2.template).replace(/\bSAMPLE\b/g, t2.sample);
 }
-function a(t2) {
-  const e2 = r(new URL(t2.url));
-console.log("XXX", t2.url, n(new URL(t2.url)) );
-  return new Response(e2, { status: 200, headers: { "cache-control": "max-age=0", "content-type": "text/html; encoding= utf8", expires: (/* @__PURE__ */ new Date()).toString() } });
+function a(e2) {
+  const t2 = o(new URL(e2.url));
+  return new Response(t2, { status: 200, headers: { "cache-control": "max-age=0", "content-type": "text/html; encoding= utf8", expires: (/* @__PURE__ */ new Date()).toString() } });
 }
-const c = { map_templates: r, content_template: o, sanitise_getopts: n };
+const c = { map_templates: o, content_template: r, sanitise_getopts: n };
 export {
   a as GET,
   c as TEST_ONLY
