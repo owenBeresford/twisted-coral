@@ -20,6 +20,7 @@ describe("TEST internal functions", () => {
     assert.isTrue(typeof dat === "string", "we have a valid response");
     assert.isTrue(dat.indexOf("shorter") > 0, "we have a valid response");
 
+	// this tests url-encoding AND html-entities
     testUrl = "http://127.0.0.1/?sample=<i>A%20smol</i>%20World&template=v1";
     r1 = new Request(testUrl);
 
