@@ -13,7 +13,7 @@ function n(t2) {
 function o(n2) {
   const o2 = { v1: "v1.html", v2: "v2.html" };
   if (!(n2 in o2)) throw new Error("Unknown template " + n2);
-  const r2 = path.join(e, o2[n2]);
+  const r2 = path.join(__dirname, o2[n2]);
   return fs.readFileSync(r2, { encoding: "utf8", flag: "r" });
 }
 function r(t2) {
