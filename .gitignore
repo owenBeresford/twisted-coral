@@ -1,5 +1,6 @@
 package-lock.json
 *.tfvars
-
+terraform.tfstate
+.terraform/
 node_modules
 
