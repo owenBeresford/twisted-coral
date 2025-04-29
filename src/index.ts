@@ -11,6 +11,7 @@
 import path from "node:path";
 import { readFileSync } from 'node:fs/promises';
 import url from 'node:url';
+import fs from "node:fs";
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
@@ -37,9 +38,9 @@ function sanitise_getopts(loc:URL): RuntimeSettings {
 	const KEYS=Object.keys(DEFAULTS);
 	for(let i in KEYS) {
 		if( PARAM.has( KEYS[i] )) {
-			ret[i]=decodeURI( PARAM.get( KEYS[i] ) );
+			ret[ KEYS[i] ]=decodeURI( PARAM.get( KEYS[i] ) ).replaceAll(["<", ">"], ["&lt;", "&gt;"]);
 		} else {
-			ret[i]=DEFAULTS[ KEYS[i] ];
+			ret[ KEYS[i] ]=DEFAULTS[ KEYS[i] ];
 		}
 	}
 	return ret;
@@ -112,3 +113,4 @@ export function GET(req: Request):Response {
   });
 }
 
+export const TEST_ONLY={ map_templates, content_template, sanitise_getopts };

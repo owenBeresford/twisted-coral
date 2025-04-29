@@ -8,7 +8,7 @@ export default defineConfig({
 	name: 'fast',
 
     globals: true,
-    include: [ ],
+    include: [ "src/*vitest.mjs" ],
     environment: "node",
     bail: 0,
 
