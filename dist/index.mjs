@@ -22,7 +22,7 @@ function r(t2) {
 }
 function a(t2) {
   const e2 = r(new URL(t2.url));
-console.log("XXX", e2.url, n(new URL(e2.url)) );
+console.log("XXX", t2.url, n(new URL(t2.url)) );
   return new Response(e2, { status: 200, headers: { "cache-control": "max-age=0", "content-type": "text/html; encoding= utf8", expires: (/* @__PURE__ */ new Date()).toString() } });
 }
 const c = { map_templates: r, content_template: o, sanitise_getopts: n };
