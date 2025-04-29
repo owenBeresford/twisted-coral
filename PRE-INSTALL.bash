@@ -8,32 +8,21 @@
 # STEPS as root
 # install Golang
    # for me a null step here
+	# OR
+snap install go --classic
 # install Terraform
 snap install terraform --classic
-# install Task
+# install Task OPTIONAL used to build Go projects, other than Cmake
 snap install task --classic 
-# install goreleaser
+# install goreleaser ~ code management tool
 snap install --classic goreleaser
 
-# STEPS as a plain user
-#  **NOTE** if you start out with this source code, run `terraform init` 
-#			and it will deploy the vercel plugin for you
-#
-# I found the Vercel integration created by Vercel, 
-#    its repo says install it with git, so I did.
-#    I thought terraform used a registry like Golang does,  will check if have time
-cd ~
-mkdir terraform-provider-vercel
-# copy vercel integration
-git clone https://github.com/vercel/terraform-provider-vercel terraform-provider-vercel
-cd terraform-provider-vercel
-# warn this may change your local copy of Golang, so do not run these steps as root
-task build
-# actually link the new plugin to the terraform core
-task install
+# copy my repo ~ where you got this file
+mkdir ~/terraform-demo
+git clone https://github.com/owenBeresford/twisted-coral terraform-demo
+cd ~/terraform-demo
 
-# result binary file is 
-#    dist/terraform-provider-vercel_linux_amd64_v1/terraform-provider-vercel*
-# this is a Go-flavour elf binary
-# the install step links it
+# set-up vercel provider
+terraform install
+
 
