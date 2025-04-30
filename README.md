@@ -72,10 +72,11 @@ These could be Github issues, but this is faster.
 - Create Vercel account manually ~ I wanted this is to be automated, then realised steps that can/ might include billing can't be automated
 - Clone this repo
 - OPTIONAL Setup the local tools described in PRE-INSTALL.bash. I could create a NPM version of that for win32 people, but do not often develop from win32
+- It is essential to run `terraform init`
 - If you want to make edits, run `npm install` to deploy test tools etc
-   - Normal npm work flows then apply.
+   - Normal npm work flows then apply.  See ` npm run ` 
 - Populate a new file terraform.tfvars as a copy of terraform.tfvars.SAMPLE
-- Review via `terraform plan` (this is clean results on my machine)
+- Review via `terraform plan` (this shows clean results on my machine)
 - Exec `terraform apply`
 
 
@@ -94,6 +95,8 @@ I will tear down this URL fairly quickly. I can add support for a easier-to-use 
 
 ### Choices
 
+There is a newer copy of this list in the extra PDF file I sent you.
+
 - I chose Vercel over a more traditional Serverless cloud vendor as your spec nearly doesn't ask for any computation. This better maps the features that you ask for IMO.
 - I chose Fluid over Edge, as Vercel said too ~ and they know their platform
 - I include several HTML templates, as the single Element line isn't good practice
@@ -105,7 +108,10 @@ I will tear down this URL fairly quickly. I can add support for a easier-to-use 
 - Why didn't I use an LLM to generate the code? It would then take much longer to test, as I haven't used Terraform or Vercel previously. LLM work best on things that the operator already understands, so can make good prompts. A vague request for "cloud" will deliver AWS most of the time, as it is the most common in articles on the interwebs. See why Vercel above.
 - Why no SPA framework (React etc)? Vercel is a framework for ISR ~ 'Incremental Static Regeneration', and meets all the needs of this project. Many docs assume a SPA is needed.
 
+
 ### Known limits:
+
+There is a newer copy of this list in the extra PDF file I sent you.
 
 - I have only created 1 IP/ region with this script. This matches what you asked for, and costs the least. In previous employment, we deployed to data-centres around the planet for better performance in each country/ region. This is an easy step to scale-to with rentable cloud.
 - I choose to use a blog platform that supported devops rather than a serverless service for them, as this spec is very simple, and doesn't need a DB. If no complexity is needed, the simplest solution should be better.
