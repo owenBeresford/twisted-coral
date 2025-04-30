@@ -10,7 +10,8 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "node node_modules/.bin/vitest run; echo 'Add something Vercel test'",
-    "build": "node node_modules/.bin/vite build --config ./vite.config.lib.ts; echo 'Unfortunately, this needs to be repacked by hand'; cp src/*.html dist/;"
+    "build": "node node_modules/.bin/vite build --config ./vite.config.lib.ts; echo 'Unfortunately, this needs to be repacked by hand'; cp src/*.html dist/;",
+	"prettier": "node ./node_modules/.bin/prettier --write ."
   },
   "author": "see git repo",
   "license": "ISC",
