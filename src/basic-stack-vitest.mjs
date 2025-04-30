@@ -55,6 +55,9 @@ describe("TEST internal functions", () => {
     assert.isTrue(dat.indexOf("shorter") > 0, "we have a valid response");
   });
 
+
+  // WARN: If the above test are looking at freshly edited code, this below test is 1 step behind, 
+  //    as its looking at deployed code.
   it("go 3: real HTTP  ", async () => {
     const BASE_URL = "https://arqiva-submission.vercel.app/";
     let testUrl = BASE_URL + "?sample=shorter&template=v1";
