@@ -42,13 +42,11 @@ describe("TEST internal functions", () => {
   it("go 2: GET2  ", async () => {
     let testUrl = "http://127.0.0.1/?sample=shorter&template=v1";
     let r1 = new Request(testUrl);
-    assert.equal(r1.url, testUrl, "I can make Request objects");
-
     let r2;
     try {
       r2 = GET2(r1);
     } catch (e) {
-      console.log("WWWWW ", e, e.message);
+      console.log("Unexpected error (means build went wrong) ", e, e.message);
       assert.isTrue(false, "we have a valid response " + e.message);
     }
     assert.isTrue(r2 instanceof Response, "we have a valid response");
@@ -56,4 +54,39 @@ describe("TEST internal functions", () => {
     assert.isTrue(typeof dat === "string", "we have a valid response");
     assert.isTrue(dat.indexOf("shorter") > 0, "we have a valid response");
   });
+
+  it("go 3: real HTTP  ", async () => {
+	const BASE_URL='https://arqiva-submission.vercel.app/';
+    let testUrl = BASE_URL+"?sample=shorter&template=v1";
+
+    let r2;
+    try {
+ 		r2 = await fetch(testUrl );
+    } catch (e) {
+      console.log("Unexpected error (means build went wrong) ", e, e.message);
+      assert.isTrue(false, "we have a valid response " + e.message);
+    }
+
+    assert.isTrue(r2 instanceof Response, "we have a valid response");
+    let dat = await r2.text();
+    assert.isTrue(typeof dat === "string", "we have a valid response");
+    assert.isTrue(dat.indexOf("shorter") > 0, "we have a valid response");
+
+
+    testUrl = BASE_URL;
+    try {
+ 		r2 = await fetch(testUrl );
+    } catch (e) {
+      console.log("Unexpected error (means build went wrong) ", e, e.message);
+      assert.isTrue(false, "we have a valid response " + e.message);
+    }
+
+    assert.isTrue(r2 instanceof Response, "we have a valid response");
+    dat = await r2.text();
+    assert.isTrue(typeof dat === "string", "we have a valid response");
+    assert.isTrue(dat.indexOf("dynamic string") > 0, "we have a valid response");
+
+  });
+
 });
+
