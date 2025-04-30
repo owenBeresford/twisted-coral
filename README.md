@@ -28,6 +28,7 @@ Send us a link to the repo when you have completed the challenge.
 
 NOTE: If you would prefer to use a private repo - that is fine. Upon the receipt of the link we will provide Git logins to allow you to grant us temporary access to view the code and documentation.
 
+
 ### Deliverables for an exposed HTTP service
 
 These could be Github issues, but this is faster.
@@ -39,10 +40,9 @@ These could be Github issues, but this is faster.
 - ✓ The HTTP server process
 - ✓ HTTP2 processing
 - ✓ HTTPS/ SSL with recent encryption
-- ✅ Allocated domain, HTTP2, fairy good SSL
-- ? Create cert. NOW unneeded.
+- ✅ Allocated sub-domain, HTTP2, fairly good SSL
 - ? Ensure HTTP security headers
-- ✓ Could add via Vercel if bought expensive account, or manually
+- ✓ Could add headers via Vercel if bought expensive account, or manually via config file
 - ? Ensure HTTP no-cache type headers to make tests easier
 - ✓ ✅ Added via Vercel, not Terraform
 - ✓ Firewall on the IP
@@ -50,7 +50,7 @@ These could be Github issues, but this is faster.
 - ✓ Log build event
 - ✓ Log start/ shutdown events
 - ✓ Log HTTP service used
-- The last four items are easy in Vercel, will add if get time
+- The last five items are easy in Vercel, will add if get time
 - ? Service has behavioural tests
 - ✅ Done as a unit-test.
 - ? Support an URL that renders a template with a GET arg
@@ -66,16 +66,22 @@ These could be Github issues, but this is faster.
 - -     In real work, large scale is quick with Cloud, but get a spend agreement first.
 - ✓ Add a form and a form handler for the input
 
+
 ### Deploy process
 
-- Create Vercel account ~ I wanted this is to be automated, then realised steps that can/ might include billing can't be automated
+- Create Vercel account manually ~ I wanted this is to be automated, then realised steps that can/ might include billing can't be automated
 - Clone this repo
 - OPTIONAL Setup the local tools described in PRE-INSTALL.bash. I could create a NPM version of that for win32 people, but do not often develop from win32
+- If you want to make edits, run `npm install` to deploy test tools etc
+   - Normal npm work flows then apply.
+- Populate a new file terraform.tfvars as a copy of terraform.tfvars.SAMPLE
+- Review via `terraform plan` (this is clean results on my machine)
 - Exec `terraform apply`
+
 
 ### Artefact
 
-look at the following URLs:
+Look at the following URLs:
 
 - https://arqiva-submission.vercel.app
 - 'https://arqiva-submission.vercel.app?sample=A brave new world of interactivity'
@@ -83,7 +89,8 @@ look at the following URLs:
 - https://arqiva-submission.vercel.app?sample=A%20brave%20new%20world%20of%20interactivity
 - https://arqiva-submission.vercel.app?sample=some+customised+text&template=v2 ~ better use of HTML+CSS
 
-I will tear down this URL fairly quickly. I can add support for a easier-to-use form to enter the dynamic-text but haven't to date.
+I will tear down this URL fairly quickly. I can add support for a easier-to-use form to enter the dynamic-text.
+
 
 ### Choices
 
