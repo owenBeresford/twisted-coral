@@ -111,13 +111,16 @@ There is a newer copy of this list in the extra PDF file I sent you.
 
 ### Known limits:
 
-There is a newer copy of this list in the extra PDF file I sent you.
-
-- I have only created 1 IP/ region with this script. This matches what you asked for, and costs the least. In previous employment, we deployed to data-centres around the planet for better performance in each country/ region. This is an easy step to scale-to with rentable cloud.
-- I choose to use a blog platform that supported devops rather than a serverless service for them, as this spec is very simple, and doesn't need a DB. If no complexity is needed, the simplest solution should be better.
-- I _could_ it look much more graphically designed, easily.
-- I will add smoothed URLs in later editions
+- Vercel have a less mature Devop API than AWS or Azure for example.
+- I have only created 1 IP/ region with this demo. This matches what your request, and costs the least. This is an easy step to reach with rentable cloud. At Hoptroff we deployed to data-centres around the planet for better performance in each country/ region.
+- Due to the small scale of process, I haven’t enabled auto publish on Git push. I prefer to do asecond review for typos with preview. I now have unit-tests the rate of errors should be reduced.
+- I could restyle it to look much more graphically designed, easily. To add more features quickly, a CSS framework should be injected.
 - Users need to type on the URL bar (rather than a designed form). Your browser will tidy-up various input into a valid URL.
+- I will add smoothed URLs in later editions. Not done yet.
+- The compute regions set in the Vercel GUI do nothing, for deploy. I am setting this the Vercel config to AWS London. A support ticket from 2024 says this region targeting is ineffective to-date. The meta-data API does report the correct AWS zone, but I ought to confirm with an IP2GIS mapper.
+- Headers should be changed for a product (easy).
+- I should create a “chaos monkey” type service-test that tears down and redeploys this small “pico site”. I haven’t torn this down and republished via Terraform as I would like to keep this sub-domain for the demo.
+- My standard package.json "engines": { "node": ">=18.0.0" } should be edited for production with automated cloud services as it encourages auto updates. This limit ensures that isolated machines warn about old Node and therefore service failure.
 
 Addendum (after submission): I was only choosing platforms with good docs, as explainability and completion are the most urgent ideas in this context.   For a running service inside UK critical-infra regulation ~ like Telcos ~ I would think carefully about political instability / changeover internationally, which I haven't in this demo.   Some states are publishing draconian regulations that would clash with UK operating culture.   
 
