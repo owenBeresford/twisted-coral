@@ -119,5 +119,5 @@ There is a newer copy of this list in the extra PDF file I sent you.
 - I will add smoothed URLs in later editions
 - Users need to type on the URL bar (rather than a designed form). Your browser will tidy-up various input into a valid URL.
 
-Addendum (after submission): I was only choosing platforms with good docs, as explainability and completion are the most urgent ideas in this context.   For a running service inside UK critical-infra regulation ~ like Telcos ~ I would think carefully about political instability / changeover internationally, which I haven't in this demo.   Some states are publishing draconian regulations that would class with UK operating culture.   
+Addendum (after submission): I was only choosing platforms with good docs, as explainability and completion are the most urgent ideas in this context.   For a running service inside UK critical-infra regulation ~ like Telcos ~ I would think carefully about political instability / changeover internationally, which I haven't in this demo.   Some states are publishing draconian regulations that would clash with UK operating culture.   
 
