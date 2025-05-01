@@ -1,4 +1,4 @@
-****\*\*\*\***** NOTE this was a PRIVATE REPO, as is normal for code-tests ******\*\*\*******
+**** NOTE this was a PRIVATE REPO, as is normal for code-tests ****
 
 ### Problem Description
 
