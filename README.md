@@ -97,16 +97,17 @@ I will tear down this URL fairly quickly. I can add support for a easier-to-use 
 
 There is a newer copy of this list in the extra PDF file I sent you.
 
-- I chose Vercel over a more traditional Serverless cloud vendor as your spec nearly doesn't ask for any computation. This better maps the features that you ask for IMO.
-- I chose Fluid over Edge, as Vercel said too ~ and they know their platform
-- I include several HTML templates, as the single Element line isn't good practice
-- I currently have little security on the build process, **I should add this**. The build process at Hoptroff for example was a mature release process, as would be expected for a business inside ISO-27001.
-- I am not compiling in Vercel, as this adds no benefit to me, but will stack up CPU time. Note loudly: Dep issues are best resolved away from production. Vervel does support this.
-- The regions set in the Vercel GUI do nothing, I am setting this the config to AWS London
-- I have set some HTTP headers, to show that I can. I will need to add more in the long scale, and if there are any assets.
-- Due to extremely small number of features, this will work on mobile, tablet and desktop with no hassle.
-- Why didn't I use an LLM to generate the code? It would then take much longer to test, as I haven't used Terraform or Vercel previously. LLM work best on things that the operator already understands, so can make good prompts. A vague request for "cloud" will deliver AWS most of the time, as it is the most common in articles on the interwebs. See why Vercel above.
-- Why no SPA framework (React etc)? Vercel is a framework for ISR ~ 'Incremental Static Regeneration', and meets all the needs of this project. Many docs assume a SPA is needed.
+- I chose Vercel over a more traditional Serverless cloud vendor as your spec is simple with little computation. Vercel offers strong edge -hosting, international footprint, integrated software services that are useful to this project.
+- I chose Fluid over older models, inside Vercel’s advice and they know their platform.
+- I include two HTML templates, as the single Element version isn't good practice.
+- I currently have little security on the build process or run-time security. To be added. However project holds no data, so cannot be breached. The build process at Hoptroff, for example, was a mature release process, as would be expected for a business inside ISO-27001.
+- I have set some HTTP headers as demonstration. For a product (with assets), I would add more.
+- I am not compiling in Vercel, as it would stack up billable CPU time. Vercel does support this.
+NB: Dependency issues are best resolved away from production.
+- Due to extremely small number of features this will work on mobile, tablet and desktop with no extra work.
+- I think this code is complex enough to gain from unit-tests, so I added some.
+- Why didn't I use an LLM to generate the code? It would then take much longer to test, as I haven't used Terraform or Vercel previously. I had some training in Terraform at Hoptroff, but wasn’t doing Devops at that point. LLM work best on solutions that the operator already understands, so can make good prompts. A vague request for "cloud" will deliver AWS most of the time, the most common in articles on the interwebs. See also why Vercel above.
+- Why does this not use an SPA framework (React etc.)? Vercel is a framework for ISR ~ 'Incremental Static Regeneration', and meets all the needs of this project. Many articles on the internet assume a SPA is needed.
 
 
 ### Known limits:
