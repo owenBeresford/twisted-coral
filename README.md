@@ -106,8 +106,10 @@ There is a newer copy of this list in the extra PDF file I sent you.
 NB: Dependency issues are best resolved away from production.
 - Due to extremely small number of features this will work on mobile, tablet and desktop with no extra work.
 - I think this code is complex enough to gain from unit-tests, so I added some.
-- Why didn't I use an LLM to generate the code? It would then take much longer to test, as I haven't used Terraform or Vercel previously. I had some training in Terraform at Hoptroff, but wasn’t doing Devops at that point. LLM work best on solutions that the operator already understands, so can make good prompts. A vague request for "cloud" will deliver AWS most of the time, the most common in articles on the interwebs. See also why Vercel above.
-- Why does this not use an SPA framework (React etc.)? Vercel is a framework for ISR ~ 'Incremental Static Regeneration', and meets all the needs of this project. Many articles on the internet assume a SPA is needed.
+- Why didn't I use an LLM to generate the code? 
+   - It would then take much longer to test, as I haven't used Terraform or Vercel previously.    If i am hired as an engineer, i am hired to deliver known-working tools or platforms inside performance characteristics.    I show I am being adaptive as I used what I think is the most relevant platform not what I knew already.   I had some training in Terraform at Hoptroff, but wasn’t doing Devops at that point.   LLM work best on solutions that the operator already understands, so can make good prompts.    A vague request for "cloud" will deliver AWS most of the time, the most common in articles on the interwebs.   Stats based "guessing of meaning" will sometimes led to good solutions and sometimes poor or defective ones.   Before OpenAI released, some people state that source code is a necessary step to "define the software behaviour" in enough detail that a stupid computer can execute it.   See also why Vercel above.
+- Why does this not use an SPA framework (React etc.)? 
+   - Vercel is a framework for ISR ~ 'Incremental Static Regeneration', and meets all the needs of this project. Many articles on the internet assume a SPA is needed.
 
 
 ### Known limits:
