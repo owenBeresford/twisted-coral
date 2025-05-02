@@ -116,8 +116,7 @@ NB: Dependency issues are best resolved away from production.
 
 - Vercel have a less mature Devop API than AWS or Azure for example.
 - I have only created 1 IP/ region with this demo. This matches what your request, and costs the least. This is an easy step to reach with rentable cloud. At Hoptroff we deployed to data-centres around the planet for better performance in each country/ region.
-- Due to the small scale of process, I haven’t enabled auto publish on Git push. I prefer to do asecond review for typos with preview. I now have unit-tests the rate of errors should be reduced.
-- I could restyle it to look much more graphically designed, easily. To add more features quickly, a CSS framework should be injected.
+- Due to the small scale of process, I haven’t enabled auto publish on Git push. I prefer to do a second review for typos with preview. I now have unit-tests the rate of JS errors should be reduced.  - I could restyle it to look much more graphically designed, easily. To add more features quickly, a CSS framework should be injected.
 - Users need to type on the URL bar (rather than a designed form). Your browser will tidy-up various input into a valid URL.
 - I will add smoothed URLs in later editions. Not done yet.
 - The compute regions set in the Vercel GUI do nothing, for deploy. I am setting this the Vercel config to AWS London. A support ticket from 2024 says this region targeting is ineffective to-date. The meta-data API does report the correct AWS zone, but I ought to confirm with an IP2GIS mapper.
