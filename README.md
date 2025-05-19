@@ -95,7 +95,7 @@ I will tear down this URL fairly quickly. I can add support for a easier-to-use 
 
 ### Choices
 
-There is a newer copy of this list in the extra PDF file I sent you.
+There is a newer copy of this list in the extra PDF file I sent you.   There are some notess available at https://owenberesford.me.uk/resource/terraform
 
 - I chose Vercel over a more traditional Serverless cloud vendor as your spec is simple with little computation. Vercel offers strong edge -hosting, international footprint, integrated software services that are useful to this project.
 - I chose Fluid over older models, inside Vercel’s advice and they know their platform.
@@ -107,10 +107,9 @@ NB: Dependency issues are best resolved away from production.
 - Due to extremely small number of features this will work on mobile, tablet and desktop with no extra work.
 - I think this code is complex enough to gain from unit-tests, so I added some.
 - Why didn't I use an LLM to generate the code? 
-   - It would then take much longer to test, as I haven't used Terraform or Vercel previously.    If i am hired as an engineer, i am hired to deliver known-working tools or platforms inside performance characteristics.    I show I am being adaptive as I used what I think is the most relevant platform not what I knew already.   I had some training in Terraform at Hoptroff, but wasn’t doing Devops at that point.   LLM work best on solutions that the operator already understands, so can make good prompts.    A vague request for "cloud" will deliver AWS most of the time, the most common in articles on the interwebs.   Stats based "guessing of meaning" will sometimes led to good solutions and sometimes poor or defective ones.   Before OpenAI released, some people state that source code is a necessary step to "define the software behaviour" in enough detail that a stupid computer can execute it.   See also why Vercel above.
+   - It would then take much longer to test, as I haven't used Terraform or Vercel previously.    If I am hired as an engineer, I am hired to deliver known-working tools or platforms inside performance characteristics.    I show I am being adaptive as I used what I think is the most relevant platform not what I knew already.   I had some training in Terraform at Hoptroff, but wasn’t doing Devops at that point.   LLM work best on solutions that the operator already understands, so can make good prompts.    A vague request for "cloud" will deliver AWS most of the time, the most common in articles on the interwebs.   Stats based "guessing of meaning" will sometimes led to good solutions and sometimes poor or defective ones.   Before OpenAI released, some people state that source code is a necessary step to "define the software behaviour" in enough detail that a stupid computer can execute it.   See also why Vercel above.
 - Why does this not use an SPA framework (React etc.)? 
    - Vercel is a framework for ISR ~ 'Incremental Static Regeneration', and meets all the needs of this project. Many articles on the internet assume a SPA is needed.
-
 
 ### Known limits:
 
@@ -125,4 +124,4 @@ NB: Dependency issues are best resolved away from production.
 - My standard package.json "engines": { "node": ">=18.0.0" } should be edited for production with automated cloud services as it encourages auto updates. This limit ensures that isolated machines warn about old Node and therefore service failure.
 
 Addendum (after submission): I was only choosing platforms with good docs, as explainability and completion are the most urgent ideas in this context.   For a running service inside UK critical-infra regulation ~ like Telcos ~ I would think carefully about political instability / changeover internationally, which I haven't in this demo.   Some states are publishing draconian regulations that would clash with UK operating culture.   
-
+I am still unsure how to test config files in a unit-test, they can be compared to other config files, but then I need t get both files typed correctly, and haven't verified the files well.  For this small thing, I manually tested via `terraform plan`, for more realistic work, plesae look at `terraform test`.   If a block of code is supposed to return the smallest numer, I can check the output is the smallest input, but not do that for config files.  
