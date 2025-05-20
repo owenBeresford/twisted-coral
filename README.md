@@ -82,15 +82,15 @@ These could be Github issues, but this is faster.
 
 ### Artefact
 
-Look at the following URLs:
+Look at the following URLs:  UPDATE, destroyed
 
-- https://arqiva-submission.vercel.app
-- 'https://arqiva-submission.vercel.app?sample=A brave new world of interactivity'
-- https://arqiva-submission.vercel.app?sample=A+brave+new+world+of+interactivity ~ these format URLs are better for text editing like this, but harder to read. All three formats are supported
-- https://arqiva-submission.vercel.app?sample=A%20brave%20new%20world%20of%20interactivity
-- https://arqiva-submission.vercel.app?sample=some+customised+text&template=v2 ~ better use of HTML+CSS
+- [host]/
+- '[host]/?sample=A brave new world of interactivity'
+- [host]/?sample=A+brave+new+world+of+interactivity ~ these format URLs are better for text editing like this, but harder to read. All three formats are supported
+- [host]/?sample=A%20brave%20new%20world%20of%20interactivity
+- [host]/?sample=some+customised+text&template=v2 ~ better use of HTML+CSS
 
-I will tear down this URL fairly quickly. I can add support for a easier-to-use form to enter the dynamic-text.
+I will tear down this URL fairly quickly DONE. I can add support for a easier-to-use form to enter the dynamic-text.
 
 
 ### Choices
